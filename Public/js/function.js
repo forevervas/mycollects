@@ -21,7 +21,7 @@ $(function(){
 				$("#content").css('color' , '#999999');
 			}
 		});
-});
+}); 
 
 function to_limitInput(){
 	var content = $("#content").val();
@@ -41,4 +41,8 @@ function to_limitInput(){
 		$("#inputnums_text").html('已超出');
 		isSendBtn = false;
 	}
+}
+function test() { 
+	setTimeout(function() {}, 10)
+	if(1) alert('1')
 }
