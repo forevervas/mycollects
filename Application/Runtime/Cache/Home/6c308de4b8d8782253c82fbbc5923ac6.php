@@ -6,6 +6,9 @@
 </head>
 <body>
 <div class="nav">
+	<span id="logo"></span>
+	<span class="menu"></span>
+	<div class="clear"></div>
 	<ul class="nav">
 		<li class=""><a href="#" class="active">博客</a></li>
 		<li><a href="#">Css3</a></li>
