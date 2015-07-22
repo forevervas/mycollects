@@ -1,38 +1,115 @@
-<!DOCTYPE <!DOCTYPE html>
-<html>
-<head>
-	<title>upload test</title>
-	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
-</head>
-<body>
+<!-- <include file="Public:header" /> -->
+<extend name="Public:header" />
 <!-- <form action="__URL__/upload" enctype="multipart/form-data" method="post" > -->
 <form action="" method="post" enctype="multipart/form-data"> 
 <!-- <input type="text" name="name" /> -->
-<input type="file" name="file" />
+<input type="file" name="file" id="demo1" />
 <input type="submit" value="提交" >
 </form>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.ajaxfileupload.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			var interval;
+
+			function applyAjaxFileUpload(element) {
+				$(element).AjaxFileUpload({
+					action: "{:U('Home/Upload/upload')}",
+					onChange: function(filename) {
+						// Create a span element to notify the user of an upload in progress
+						var $span = $("<span />")
+							.attr("class", $(this).attr("id"))
+							.text("Uploading")
+							.insertAfter($(this));
+
+						$(this).remove();
+
+						interval = window.setInterval(function() {
+							var text = $span.text();
+							if (text.length < 13) {
+								$span.text(text + ".");
+							} else {
+								$span.text("Uploading");
+							}
+						}, 200);
+					},
+					onSubmit: function(filename) {
+						// Return false here to cancel the upload
+						/*var $fileInput = $("<input />")
+							.attr({
+								type: "file",
+								name: $(this).attr("name"),
+								id: $(this).attr("id")
+							});
+
+						$("span." + $(this).attr("id")).replaceWith($fileInput);
+
+						applyAjaxFileUpload($fileInput);
+
+						return false;*/
+
+						// Return key-value pair to be sent along with the file
+						return true;
+					},
+					onComplete: function(filename, response) {
+						window.clearInterval(interval);
+						var $span = $("span." + $(this).attr("id")).text(filename + " "),
+							$fileInput = $("<input />")
+								.attr({
+									type: "file",
+									name: $(this).attr("name"),
+									id: $(this).attr("id")
+								});
+
+						if (typeof(response.error) === "string") {
+							$span.replaceWith($fileInput);
+
+							applyAjaxFileUpload($fileInput);
+
+							alert(response.error);
+
+							return;
+						}
+
+						$("<a />")
+							.attr("href", "#")
+							.text("x")
+							.bind("click", function(e) {
+								$span.replaceWith($fileInput);
+
+								applyAjaxFileUpload($fileInput);
+							})
+							.appendTo($span);
+					}
+				});
+			}
+
+			applyAjaxFileUpload("#demo1");
+		});
+
+	</script>
 <script type="text/javascript">
-	$(function(){
-		data = $("input[name=file]").val();
-		console.log('data',data);
-		$("input[name=file]").change(function(){
-			$.ajax({
-				url:"{:U('Home/upload/upload')}",
-				method: "post",
-				// fileElementId:"avatar_uploder",
-				data:{},
-				success:function(obj){
-					console.log('s',obj)
-				},
-				complete:function(obj){
-					console.log('c',obj)
-				},
-				error:function(){
-					console.log('e')
-				}
-			})
-		})
-	})
+	// $(function(){
+	// 	data = $("input[name=file]").val();
+	// 	console.log('data',data);
+	// 	$("input[name=file]").change(function(){
+	// 		$.ajax({
+	// 			url:"{:U('Home/upload/upload')}",
+	// 			method: "post",
+	// 			fileElementId:"file",
+	// 			data:{},
+	// 			success:function(obj){
+	// 				console.log('s',obj)
+	// 			},
+	// 			complete:function(obj){
+	// 				console.log('c',obj)
+	// 			},
+	// 			error:function(){
+	// 				console.log('e')
+	// 			}
+	// 		})
+	// 	})
+	// })
 </script>
 </body>
 </html>

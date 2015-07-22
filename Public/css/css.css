@@ -1,0 +1,30 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+/* common */
+div.nav .active {
+	font-weight: bold;
+	color: #FFF;
+}
+/**/
+ul.nav {
+	color: #FFF;
+	background: #333333;
+	overflow: hidden;
+}
+ul.nav li{
+	list-style: none;
+	float: left;
+	padding: 0 15px;
+	line-height: 48px;
+	/*background: #000;*/
+	height: 48px;
+}
+ul.nav li a{
+	color: #ccc;
+	text-decoration: none;
+}
+ul.nav li a:hover{
+	color: #FFF;
+}
