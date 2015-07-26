@@ -1,0 +1,32 @@
+html,
+body,
+ul {
+  padding: 0;
+  margin: 0;
+}
+div.nav {
+  background: #000000;
+  color: blue;
+  overflow: hidden;
+}
+div.nav ul {
+  overflow: hidden;
+}
+div.nav ul li {
+  list-style-type: none;
+  float: left;
+}
+div.nav ul li:hover {
+  background: #1a1a1a;
+}
+div.nav ul li a {
+  text-decoration: none;
+  display: block;
+  color: gray;
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+}
+div.nav ul li a:hover {
+  color: #ffffff;
+}

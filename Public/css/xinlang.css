@@ -1,0 +1,72 @@
+@charset utf-8;
+html,
+body,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url(../images/body_bg.jpg) no-repeat;
+  font: 12px/1.3 'Arial', 'Microsoft YaHei';
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: #fa7d3c;
+}
+div.nav {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.94);
+}
+div.nav .nav-left {
+  float: left;
+  position: relative;
+}
+div.nav .nav-left .logo {
+  display: block;
+  float: left;
+  width: 140px;
+  height: 48px;
+  margin-left: 50px;
+  background: url(../images/WB_logo.png) no-repeat 0 40%;
+}
+div.nav .nav-left input {
+  float: left;
+  width: 505px;
+  padding: 4px 33px 4px 10px;
+  margin: 9px 0 0 0;
+  font-weight: bold;
+  background: #f2f2f5;
+  color: #4d4d4d;
+  border: 1px solid #b8b8c9;
+}
+div.nav .nav-left input:focus {
+  border: 1px solid #fa7d3c;
+  background: #ffffff;
+  outline: 0;
+}
+div.nav .nav-left a.search-icon {
+  position: absolute;
+  top: 17px;
+  right: 10px;
+  font-size: 17px;
+}
+div.nav .nav-left a.search-icon:hover {
+  color: #fa7d3c;
+}
+div.nav div.nav-right > div {
+  float: left;
+}
+div.nav div.nav-right {
+  float: right;
+}
+div.nav div.nav-right ul li {
+  float: left;
+  list-style-type: none;
+  padding: 0 15px;
+}
+div.nav div.nav-right ul li a {
+  display: block;
+}

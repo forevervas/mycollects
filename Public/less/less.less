@@ -1,0 +1,33 @@
+@bgcolor:#000;
+@fontcolor:blue;
+html,body,ul {
+	padding: 0;
+	margin: 0;
+}
+div.nav{ 
+	background:@bgcolor; 
+	color:@fontcolor;   
+	overflow: hidden;
+	ul{
+		overflow: hidden;
+		li{
+			list-style-type: none;
+			float: left;
+			&:hover{
+				background: lighten(@bgcolor, 10%);
+			}
+
+			a{
+				text-decoration: none;
+				display: block;
+				color: gray;
+				padding:0 15px;
+				height: 50px;
+				line-height: 50px;
+				&:hover{
+					color: #FFF+#111;
+				}
+			}
+		}
+	}
+}             

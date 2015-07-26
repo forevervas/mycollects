@@ -3,10 +3,13 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
+        $uid = I('uid');
         $user = D('user');
-        $userInfo = $user->get_user_info('0');
+        $userInfo = $user->get_user_info($uid);
         dump($userInfo);
-        dump(S('key'));
+        dump(S($uid));
+        dump(S('0'));
+        dump(S('1'));
         dump(range(0,255));
 
     }

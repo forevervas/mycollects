@@ -8,6 +8,6 @@ class UserModel extends \Think\Model{
 	*/
 	public function get_user_info($uid){
 		// $array = array('' => , );
-		return $this->where(array('uid' => $uid))->cache('key',60)->select();
+		return $this->where(array('uid' => $uid))->cache($uid,60)->select();
 	}
 }
